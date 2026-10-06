@@ -213,6 +213,15 @@ modules:
         commands:
           - autoreconf -fiv
         dest-filename: autogen.sh
+  - name: utfcpp
+    builddir: true
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DUTF8CPP_ENABLE_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.9.tar.gz
+        sha256: 397a9a2a6ed5238f854f490b0177b840abc6b62571ec3e07baa0bb94d3f14d5a
   - name: libebml
     builddir: true
     buildsystem: cmake-ninja
