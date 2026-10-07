@@ -285,47 +285,37 @@ modules:
           project-id: 1756
           url-template: https://github.com/LibVNC/libvncserver/archive/LibVNCServer-$version.tar.gz
   - name: libdvdread
-    rm-configure: true
+    buildsystem: meson
+    config-opts:
+      - --libdir=lib
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/libdvdread/6.1.3/libdvdread-6.1.3.tar.bz2
-        sha256: ce35454997a208cbe50e91232f0e73fb1ac3471965813a13b8730a8f18a15369
+        url: https://download.videolan.org/videolan/libdvdread/7.1.1/libdvdread-7.1.1.tar.xz
+        sha256: a0d47876548bec806774bbf8dbf20bb19ba139464383156b32eb8e59915b90a9
         x-checker-data:
           type: anitya
           project-id: 5614
-          url-template: https://download.videolan.org/videolan/libdvdread/$version/libdvdread-$version.tar.bz2
-      - type: script
-        commands:
-          - autoreconf -fiv
-        dest-filename: autogen.sh
+          url-template: https://download.videolan.org/videolan/libdvdread/$version/libdvdread-$version.tar.xz
   - name: libdvdnav
-    rm-configure: true
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2
-        sha256: c191a7475947d323ff7680cf92c0fb1be8237701885f37656c64d04e98d18d48
+        url: https://download.videolan.org/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
+        sha256: a2a18f5ad36d133c74bf9106b6445806fa253b09141a46392550394b647b221e
         x-checker-data:
           type: anitya
           project-id: 5615
-          url-template: https://download.videolan.org/videolan/libdvdnav/$version/libdvdnav-$version.tar.bz2
-      - type: script
-        commands:
-          - autoreconf -fiv
-        dest-filename: autogen.sh
+          url-template: https://download.videolan.org/videolan/libdvdnav/$version/libdvdnav-$version.tar.xz
   - name: libdvdcss
-    rm-configure: true
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
-        sha256: 233cc92f5dc01c5d3a96f5b3582be7d5cee5a35a52d3a08158745d3d86070079
+        url: https://download.videolan.org/videolan/libdvdcss/1.6.0/libdvdcss-1.6.0.tar.xz
+        sha256: 7ea556c846b7bfc32d47b41cae56d1863a6b6d5f706bb162778d6f298490977c
         x-checker-data:
           type: anitya
           project-id: 5568
-          url-template: https://download.videolan.org/videolan/libdvdcss/$version/libdvdcss-$version.tar.bz2
-      - type: script
-        commands:
-          - autoreconf -fiv
-        dest-filename: autogen.sh
+          url-template: https://download.videolan.org/videolan/libdvdcss/$version/libdvdcss-$version.tar.xz
   - name: libmodplug
     rm-configure: true
     sources:
@@ -390,8 +380,8 @@ modules:
       - --enable-libopus
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.4.8.tar.xz
-        sha256: c73848c4ae283d9eaee7be3b276affbc3543380483555500d0dd2c9b7e1c39c3
+        url: https://ffmpeg.org/releases/ffmpeg-8.1.3.tar.xz
+        sha256: 7138d28c96d9d3e3af4ee3d8cad72741f8ffb40da90c1112235dea3ecd3178a3
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -449,6 +439,9 @@ modules:
       - type: archive
         url: https://download.videolan.org/videolan/libudfread/libudfread-1.2.0.tar.xz
         sha512: e3ed8dc7fab472ad382b1b6cd068f1dc0084c34e5ec2c460c1dd84fa14a9d368c4d7af08a23efc5057e7f021f5812222c01247d5f304632716c94fc8c689a1a2
+        x-checker-data:
+          type: anitya
+          url-template: https://download.videolan.org/videolan/libudfread/libudfread-$version.tar.xz
     cleanup:
       - /include
       - /lib/pkgconfig
